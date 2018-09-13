@@ -1,3 +1,6 @@
-.valami {
-  color: aqua;
+.bg-red-even {
+  background: red;
+}
+.bg-yellow-odd{
+  background: yellow;
 }

@@ -6,13 +6,14 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'baseComponents ez az';
-  events = ['első', 'második', 'harmadik'];
+  title = 'baseComponents ';
+  events = ['első', 'második', 'harmadik','negyedik'];
   show = false;
-  cssClass = false;
-  eventsList;
+  cssClass = true;
+  listCss = 'list-group-item';
   disabledButton = false;
   inputcontent;
+
   setShow() {
 
     this.show = !this.show;
@@ -23,10 +24,11 @@ export class AppComponent {
   }
 
   demoMouseover(ev: MouseEvent) {
-   // alert(ev.screenX);
+    // alert(ev.screenX);
     this.inputcontent = ev.screenX;
   }
+
   disableBtn() {
-    this.disabledButton = ! this.disabledButton;
+    this.disabledButton = !this.disabledButton;
   }
 }
