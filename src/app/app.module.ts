@@ -3,14 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { ListdemoComponent } from './listdemo/listdemo.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListdemoComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    CollapseModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

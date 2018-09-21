@@ -6,6 +6,7 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  isCollapsed = true;
   title = 'baseComponents ';
   events = ['első', 'második', 'harmadik','negyedik'];
   show = false;
