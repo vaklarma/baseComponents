@@ -1,49 +1,49 @@
-<div class="row mx-auto">
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 order-md-1">
 
 
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let event of eventlist">
+          {{event.id}}
+          <img src="{{event.pic}}" width="100">
+
+          {{event.name}}
+          <button class="btn-danger"
+                  (click)="deleteItemFromList(event.id)">
+            Törlés
+          </button>
+          <button class="btn-danger"
+                  (click)="editSelectedEvent(event.id)">
+            Szerkesztés
+          </button>
+        </li>
 
 
-<ul class="list-group">
-  <li class="list-group-item" *ngFor="let event of eventlist">
-    {{event.id}}
-    <img src="{{event.pic}}" width="100" >
+      </ul>
+    </div>
 
-  {{event.name}}
-    <button class="btn-danger"
-            (click)="deleteItemFromList(event.id)">
-      Törlés
-    </button>
-    <button class="btn-danger"
-            (click)="editSelectedEvent(event.id)">
-      Szerkesztés
-    </button>
-  </li>
+      <div class="col-md-4 order-md-2 mb-4">
+        <form>
+          <h3>Új esemény létrehozása</h3>
+          <div class="form-group">
+            <label>Új esemény neve</label>
+            <input #addEventNameValue
+                   [value]="modifyEvent.name"
+                   type="text" class="form-control" placeholder="Új esemény neve">
+            <small class="form-text text-muted">Add meg kérlek az esemény nevét egy új létrehozásához</small>
+          </div>
+          <div class="form-group">
+            <label>Kép URL</label>
+            <input #addPicUrlValue
+                   [value]="modifyEvent.pic"
+                   type="text" class="form-control" id="exampleInputPassword1" placeholder="Kép URL címe">
+          </div>
 
+          <button (click)="saveEvent(addEventNameValue,addPicUrlValue)" type="submit" class="btn btn-primary">Mentés
+          </button>
+        </form>
+      </div>
 
-</ul>
-
-
-
-
-
-<div class=" col-3">
-<form>
-  <h3>Új esemény létrehozása</h3>
-  <div class="form-group">
-    <label >Új esemény neve</label>
-    <input #addEventNameValue
-           [value]="modifyEvent.name"
-           type="text" class="form-control" placeholder="Új esemény neve">
-    <small  class="form-text text-muted">Add meg kérlek az esemény nevét egy új létrehozásához</small>
   </div>
-  <div class="form-group">
-    <label >Kép URL</label>
-    <input #addPicUrlValue
-           [value]="modifyEvent.pic"
-           type="text" class="form-control" id="exampleInputPassword1" placeholder="Kép URL címe">
-  </div>
-
-  <button (click)="saveEvent(addEventNameValue,addPicUrlValue)" type="submit" class="btn btn-primary">Mentés</button>
-</form>
-</div>
 </div>
