@@ -1,33 +1,52 @@
 <div class="container">
+
+
+
+
   <div class="row">
     <div class="col-md-8 order-md-1">
 
-<h3>Események</h3>
-      <small>A listában {{eventlist.length}} esemény található</small>
-      <ul class="list-group">
-        <li class="list-group-item" *ngFor="let event of eventlist">
-          {{event.id}}
-          <img src="{{event.pic}}" width="100">
-
-          {{event.name}}
-          <button class="btn-danger"
-                  (click)="deleteItemFromList(event.id)">
+      <h3 class="text-center">Események</h3>
+      <p class="text-center" >A listában {{eventlist.length}} esemény található</p>
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Kép</th>
+          <th scope="col">Esemény</th>
+          <th scope="col">Funkció</th>
+          <th scope="col">Funkció</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let event of eventlist">
+          <td>{{event.id}}</td>
+          <td> <img src="{{event.pic}}" width="100"></td>
+          <td>{{event.name}}</td>
+          <td>
+            <button class="btn-danger"
+                        (click)="deleteItemFromList(event.id)">
             Törlés
           </button>
-          <button class="btn-danger"
-                  (click)="editSelectedEvent(event.id)">
-            Szerkesztés
-          </button>
-        </li>
+          </td>
+          <td>
+            <button class="btn-info"
+                    (click)="editSelectedEvent(event.id)">
+              Szerkesztés
+            </button>
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
 
 
-      </ul>
     </div>
 
       <div class="col-md-4 order-md-2 mb-4">
         <form>
           <h3>Új esemény létrehozása</h3>
-          <div class="form-group">ł
+          <div class="form-group">
             <label>Új esemény neve</label>
             <input #addEventNameValue
                    [value]="modifyEvent.name"

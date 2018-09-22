@@ -43,10 +43,7 @@ export class ListdemoComponent {
     if (this.eventlist.length === 0) {
       this.eventlist[0] = new EventModel('Default event', 1,
         'http://icons.iconarchive.com/icons/guillendesign/variations-3/256/Default-Icon-icon.png');
-      console.log('elfogyott', this.eventlist);
     }
-
-
   }
 
   saveEvent(eventName: HTMLInputElement, picurl: HTMLInputElement) {
