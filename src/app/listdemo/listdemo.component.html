@@ -17,7 +17,9 @@
 </div>
 
 
-
+<p>
+  maxId = {{getNextId()}}
+</p>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon1">@</span>
@@ -26,7 +28,7 @@
   #addItemValue>
 
   <button type="button" class="btn btn-primary"
-  (click)="addItemToList(addItemValue, 22)"
+  (click)="addItemToList(addItemValue)"
   >Primary</button>
 
 </div>

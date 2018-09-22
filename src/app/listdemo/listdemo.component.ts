@@ -1,16 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {EventModel} from './event-model';
 
-export class EventModel {
-
-  id: number;
-  name: string;
-
-  constructor(id = 0, name = '') {
-    this.id = id;
-    this.name = name;
-  }
-
-}
 
 @Component({
   selector: 'app-listdemo',
@@ -40,7 +30,6 @@ export class ListdemoComponent {
       }
     ];
 
-
   }
 
   ł;
@@ -50,11 +39,19 @@ export class ListdemoComponent {
     this.eventlist = this.eventlist.filter((ev: EventModel) => ev.id !== id);
   }
 
-  addItemToList(eventName: HTMLInputElement, maxId: number) {
+  addItemToList(eventName: HTMLInputElement) {
 
-
-    this.eventlist = [...this.eventlist, new EventModel(maxId, 'vdfvdfv')];
+    this.eventlist = [...this.eventlist,
+      new EventModel(
+        this.getNextId(),
+        eventName.value)];
     eventName.value = '';
+
+  }
+
+  getNextId(): number {
+
+    return (this.eventlist.reduce((x, y) => x.id > y.id ? x : y).id) + 1;
   }
 
 }
