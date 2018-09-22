@@ -11,7 +11,7 @@ import {EventModel} from './event-model';
 
 export class ListdemoComponent {
 
-
+  modifyEvent: EventModel;
   eventlist: EventModel[];
 
   constructor() {
@@ -34,7 +34,7 @@ export class ListdemoComponent {
 
       }
     ];
-
+    this.modifyEvent = new EventModel();
   }
 
   deleteItemFromList(id: number) {
@@ -42,20 +42,47 @@ export class ListdemoComponent {
     this.eventlist = this.eventlist.filter((ev: EventModel) => ev.id !== id);
   }
 
-  addItemToList(eventName: HTMLInputElement, picurl: HTMLInputElement) {
+  saveEvent(eventName: HTMLInputElement, picurl: HTMLInputElement) {
 
-    this.eventlist = [...this.eventlist,
-      new EventModel(
-        this.getNextId(),
-        eventName.value,
-        picurl.value)];
+
+    if (this.modifyEvent.id === 0) {
+      this.eventlist = [...this.eventlist,
+        new EventModel(eventName.value, this.getNextId(), picurl.value)];
+    } else {
+
+
+      console.log('szerkesztésre kijelölt: ', this.modifyEvent.id, eventName.value, picurl.value);
+
+      this.eventlist = this.eventlist.map((ev) => {
+
+        if (ev.id === this.modifyEvent.id) {
+
+          console.log('szerkesztésre ( IF ág)kijelölt: ', this.modifyEvent.id, eventName.value, picurl.value);
+
+          return {
+            id: ev.id,
+            name: eventName.value,
+            pic: picurl.value
+          };
+
+        } else {
+
+          return ev;
+        }
+
+      });
+      this.modifyEvent = new EventModel();
+    }
     eventName.value = '';
     picurl.value = '';
+
   }
 
+  editSelectedEvent(id: number) {
 
-  editSelectedItem(id: number) {
-    console.log(id);
+
+    this.modifyEvent = this.eventlist.filter((ev: EventModel) => ev.id === id)[0];
+
   }
 
   getNextId(): number {

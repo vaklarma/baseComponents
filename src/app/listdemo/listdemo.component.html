@@ -14,7 +14,7 @@
       Törlés
     </button>
     <button class="btn-danger"
-            (click)="editSelectedItem(event.id)">
+            (click)="editSelectedEvent(event.id)">
       Szerkesztés
     </button>
   </li>
@@ -23,22 +23,27 @@
 </ul>
 
 
-</div>
 
 
-<div class="container col-3">
+
+<div class=" col-3">
 <form>
   <h3>Új esemény létrehozása</h3>
   <div class="form-group">
     <label >Új esemény neve</label>
-    <input #addEventNameValue type="text" class="form-control" placeholder="Új esemény neve">
+    <input #addEventNameValue
+           [value]="modifyEvent.name"
+           type="text" class="form-control" placeholder="Új esemény neve">
     <small  class="form-text text-muted">Add meg kérlek az esemény nevét egy új létrehozásához</small>
   </div>
   <div class="form-group">
     <label >Kép URL</label>
-    <input #addPicUrlValue type="text" class="form-control" id="exampleInputPassword1" placeholder="Kép URL címe">
+    <input #addPicUrlValue
+           [value]="modifyEvent.pic"
+           type="text" class="form-control" id="exampleInputPassword1" placeholder="Kép URL címe">
   </div>
 
-  <button (click)="addItemToList(addEventNameValue,addPicUrlValue)" type="submit" class="btn btn-primary">Mentés</button>
+  <button (click)="saveEvent(addEventNameValue,addPicUrlValue)" type="submit" class="btn btn-primary">Mentés</button>
 </form>
+</div>
 </div>
