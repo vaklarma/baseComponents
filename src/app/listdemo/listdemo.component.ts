@@ -18,35 +18,38 @@ export class ListdemoComponent {
     this.eventlist = [
       {
         id: 1,
-        name: 'akarmi'
+        name: 'akarmi',
+        pic: 'http://www.vesdbelemagad.hu/sites/default/files/images/news/sunike.jpg'
       },
       {
         id: 2,
-        name: 'ez is valami'
+        name: 'ez is valami',
+        pic: 'http://www.vesdbelemagad.hu/sites/default/files/images/news/sunike.jpg'
+
       },
       {
         id: 3,
-        name: 'harmadik'
+        name: 'harmadik',
+        pic: 'http://www.vesdbelemagad.hu/sites/default/files/images/news/sunike.jpg'
+
       }
     ];
 
   }
-
-  ł;
-
   deleteItemFromList(id: number) {
 
     this.eventlist = this.eventlist.filter((ev: EventModel) => ev.id !== id);
   }
 
-  addItemToList(eventName: HTMLInputElement) {
+  addItemToList(eventName: HTMLInputElement, picurl: HTMLInputElement) {
 
     this.eventlist = [...this.eventlist,
       new EventModel(
         this.getNextId(),
-        eventName.value)];
+        eventName.value,
+        picurl.value)];
     eventName.value = '';
-
+    picurl.value = '';
   }
 
   getNextId(): number {

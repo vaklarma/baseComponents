@@ -5,8 +5,14 @@
 
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let event of eventlist">
-    {{event.id}} --{{event.name}}
-    <button (click)="deleteItemFromList(event.id)">Remove</button>
+    {{event.id}}
+    <img src="{{event.pic}}" width="100" >
+
+  {{event.name}}
+    <button class="btn-danger"
+            (click)="deleteItemFromList(event.id)">
+      Remove
+    </button>
 
   </li>
 
@@ -17,18 +23,19 @@
 </div>
 
 
-<p>
-  maxId = {{getNextId()}}
-</p>
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="basic-addon1">@</span>
+<div class="container col-3">
+<form>
+  <h3>Új esemény létrehozása</h3>
+  <div class="form-group">
+    <label >Új esemény neve</label>
+    <input #addEventNameValue type="text" class="form-control" placeholder="Új esemény neve">
+    <small id="emailHelp" class="form-text text-muted">Add meg kérlek az esemény nevét egy új létrehozásához</small>
   </div>
-  <input type="text" class="form-control" placeholder="Add an element" aria-label="Username" aria-describedby="basic-addon1"
-  #addItemValue>
+  <div class="form-group">
+    <label >Kép URL</label>
+    <input #addPicUrlValue type="text" class="form-control" id="exampleInputPassword1" placeholder="Kép URL címe">
+  </div>
 
-  <button type="button" class="btn btn-primary"
-  (click)="addItemToList(addItemValue)"
-  >Primary</button>
-
+  <button (click)="addItemToList(addEventNameValue,addPicUrlValue)" type="submit" class="btn btn-primary">Mentés</button>
+</form>
 </div>
