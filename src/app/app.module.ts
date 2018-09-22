@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { ListdemoComponent } from './listdemo/listdemo.component';
+import { SortPipe } from './sort.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListdemoComponent
+    ListdemoComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,
