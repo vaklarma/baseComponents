@@ -36,6 +36,7 @@ export class ListdemoComponent {
     ];
 
   }
+
   deleteItemFromList(id: number) {
 
     this.eventlist = this.eventlist.filter((ev: EventModel) => ev.id !== id);
@@ -50,6 +51,11 @@ export class ListdemoComponent {
         picurl.value)];
     eventName.value = '';
     picurl.value = '';
+  }
+
+
+  editSelectedItem(id: number) {
+    console.log(id);
   }
 
   getNextId(): number {
