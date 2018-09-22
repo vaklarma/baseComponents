@@ -40,6 +40,12 @@ export class ListdemoComponent {
   deleteItemFromList(id: number) {
 
     this.eventlist = this.eventlist.filter((ev: EventModel) => ev.id !== id);
+    if (this.eventlist.length === 0) {
+      this.eventlist[0] = new EventModel();
+      console.log('elfogyott', this.eventlist);
+    }
+
+
   }
 
   saveEvent(eventName: HTMLInputElement, picurl: HTMLInputElement) {
@@ -49,24 +55,14 @@ export class ListdemoComponent {
       this.eventlist = [...this.eventlist,
         new EventModel(eventName.value, this.getNextId(), picurl.value)];
     } else {
-
-
-      console.log('szerkesztésre kijelölt: ', this.modifyEvent.id, eventName.value, picurl.value);
-
       this.eventlist = this.eventlist.map((ev) => {
-
         if (ev.id === this.modifyEvent.id) {
-
-          console.log('szerkesztésre ( IF ág)kijelölt: ', this.modifyEvent.id, eventName.value, picurl.value);
-
           return {
             id: ev.id,
             name: eventName.value,
             pic: picurl.value
           };
-
         } else {
-
           return ev;
         }
 
@@ -89,5 +85,6 @@ export class ListdemoComponent {
 
     return (this.eventlist.reduce((x, y) => x.id > y.id ? x : y).id) + 1;
   }
+
 
 }
