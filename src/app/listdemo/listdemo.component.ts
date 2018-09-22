@@ -41,7 +41,8 @@ export class ListdemoComponent {
 
     this.eventlist = this.eventlist.filter((ev: EventModel) => ev.id !== id);
     if (this.eventlist.length === 0) {
-      this.eventlist[0] = new EventModel();
+      this.eventlist[0] = new EventModel('Default event', 1,
+        'http://icons.iconarchive.com/icons/guillendesign/variations-3/256/Default-Icon-icon.png');
       console.log('elfogyott', this.eventlist);
     }
 
