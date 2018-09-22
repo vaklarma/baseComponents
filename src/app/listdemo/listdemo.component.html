@@ -1,3 +1,7 @@
+<div class="row mx-auto">
+
+
+
 
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let event of eventlist">
@@ -8,3 +12,21 @@
 
 
 </ul>
+
+
+</div>
+
+
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">@</span>
+  </div>
+  <input type="text" class="form-control" placeholder="Add an element" aria-label="Username" aria-describedby="basic-addon1"
+  #addItemValue>
+
+  <button type="button" class="btn btn-primary"
+  (click)="addItemToList(addItemValue, 22)"
+  >Primary</button>
+
+</div>

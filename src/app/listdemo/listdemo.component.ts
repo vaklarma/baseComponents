@@ -5,6 +5,10 @@ export class EventModel {
   id: number;
   name: string;
 
+  constructor(id = 0, name = '') {
+    this.id = id;
+    this.name = name;
+  }
 
 }
 
@@ -37,11 +41,20 @@ export class ListdemoComponent {
     ];
 
 
-  }ł
+  }
+
+  ł;
 
   deleteItemFromList(id: number) {
 
     this.eventlist = this.eventlist.filter((ev: EventModel) => ev.id !== id);
+  }
+
+  addItemToList(eventName: HTMLInputElement, maxId: number) {
+
+
+    this.eventlist = [...this.eventlist, new EventModel(maxId, 'vdfvdfv')];
+    eventName.value = '';
   }
 
 }
