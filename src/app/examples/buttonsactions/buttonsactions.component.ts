@@ -1,19 +1,19 @@
-import {Component} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-buttonsactions',
+  templateUrl: './buttonsactions.component.html',
+  styleUrls: ['./buttonsactions.component.css']
 })
-export class AppComponent {
-
-
+export class ButtonsactionsComponent implements OnInit {
   show = false;
   cssClass = true;
-
   disabledButton = false;
   inputcontent;
+  constructor() { }
 
+  ngOnInit() {
+  }
   setShow() {
 
     this.show = !this.show;
@@ -31,4 +31,9 @@ export class AppComponent {
   disableBtn() {
     this.disabledButton = !this.disabledButton;
   }
+
 }
+
+
+
+

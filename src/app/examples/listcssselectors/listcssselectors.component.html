@@ -1,0 +1,17 @@
+<div class="row mx-auto" style="width: 200px;">
+
+
+  <ul class="list-group">
+    <li
+
+      *ngFor="let event of events index as i;even as isEven;odd as isOdd"
+      [ngClass]="{
+
+     'list-group-item'  : cssClass,
+     'list-group-item-primary' : isEven}"
+
+    >
+      {{i}} {{event}}
+    </li>
+  </ul>
+</div>

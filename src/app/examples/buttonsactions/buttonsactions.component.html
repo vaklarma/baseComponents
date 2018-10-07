@@ -1,0 +1,27 @@
+<input type="text" [(ngModel)]="inputcontent">
+<textarea>
+  {{inputcontent}}
+</textarea>
+<div> {{inputcontent}}</div>
+<button (click)="setShow()">Mutat</button>
+<button (click)="show = !show">{{show ? 'hide' : 'show'}}</button>
+<button
+  (click)="setCssClass()"
+  (mouseover)="demoMouseover($event)"
+
+>SetCss
+</button>
+
+<button (dblclick)="demoMouseover($event)">over</button>
+<button
+  (click)="disableBtn()"
+  [disabled]="disabledButton">{{disabledButton ? 'disabled' : 'enabled'}}
+</button>
+
+<div *ngIf="show">
+  megutat
+</div>
+
+<div [ngClass]="{'valami' : cssClass}">
+  ez itt piros
+</div>

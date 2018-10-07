@@ -1,0 +1,113 @@
+<html>
+<head>
+<title>listdemo.component.ts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832; font-weight: bold;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #cc7832;}
+.s3 { color: #6a8759;}
+.s4 { color: #6897bb;}
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+listdemo.component.ts</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">import </span><span class="s1">{Component</span><span class="s2">, </span><span class="s1">OnInit} from </span><span class="s3">'@angular/core'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">{EventModel} from </span><span class="s3">'./event-model'</span><span class="s2">;</span>
+
+
+<span class="s1">@Component({</span>
+  selector: <span class="s3">'app-listdemo'</span><span class="s2">,</span>
+  <span class="s1">templateUrl: </span><span class="s3">'./listdemo.component.html'</span><span class="s2">,</span>
+  <span class="s1">styleUrls: [</span><span class="s3">'./listdemo.component.css'</span><span class="s1">]</span>
+})
+
+
+<span class="s0">export class </span><span class="s1">ListdemoComponent {</span>
+
+  modifyEvent: EventModel<span class="s2">;</span>
+  <span class="s1">eventlist: EventModel[]</span><span class="s2">;</span>
+
+  <span class="s1">constructor() {</span>
+    <span class="s0">this</span><span class="s1">.eventlist = [</span>
+      {
+        id: <span class="s4">1</span><span class="s2">,</span>
+        <span class="s1">name: </span><span class="s3">'akarmi'</span><span class="s2">,</span>
+        <span class="s1">pic: </span><span class="s3">'http://www.vesdbelemagad.hu/sites/default/files/images/news/sunike.jpg'</span>
+      <span class="s1">}</span><span class="s2">,</span>
+      <span class="s1">{</span>
+        id: <span class="s4">2</span><span class="s2">,</span>
+        <span class="s1">name: </span><span class="s3">'ez is valami'</span><span class="s2">,</span>
+        <span class="s1">pic: </span><span class="s3">'http://www.vesdbelemagad.hu/sites/default/files/images/news/sunike.jpg'</span>
+
+      <span class="s1">}</span><span class="s2">,</span>
+      <span class="s1">{</span>
+        id: <span class="s4">3</span><span class="s2">,</span>
+        <span class="s1">name: </span><span class="s3">'harmadik'</span><span class="s2">,</span>
+        <span class="s1">pic: </span><span class="s3">'http://www.vesdbelemagad.hu/sites/default/files/images/news/sunike.jpg'</span>
+
+      <span class="s1">}</span>
+    ]<span class="s2">;</span>
+    <span class="s0">this</span><span class="s1">.modifyEvent = </span><span class="s0">new </span><span class="s1">EventModel()</span><span class="s2">;</span>
+  <span class="s1">}</span>
+
+  deleteItemFromList(id: number) {
+
+    <span class="s0">this</span><span class="s1">.eventlist = </span><span class="s0">this</span><span class="s1">.eventlist.filter((ev: EventModel) =&gt; ev.id !== id)</span><span class="s2">;</span>
+    <span class="s0">if </span><span class="s1">(</span><span class="s0">this</span><span class="s1">.eventlist.length === </span><span class="s4">0</span><span class="s1">) {</span>
+      <span class="s0">this</span><span class="s1">.eventlist[</span><span class="s4">0</span><span class="s1">] = </span><span class="s0">new </span><span class="s1">EventModel(</span><span class="s3">'Default event'</span><span class="s2">, </span><span class="s4">1</span><span class="s2">,</span>
+        <span class="s3">'http://icons.iconarchive.com/icons/guillendesign/variations-3/256/Default-Icon-icon.png'</span><span class="s1">)</span><span class="s2">;</span>
+    <span class="s1">}</span>
+  }
+
+  saveEvent(eventName: HTMLInputElement<span class="s2">, </span><span class="s1">picurl: HTMLInputElement) {</span>
+    <span class="s0">if </span><span class="s1">((eventName.value === </span><span class="s3">''</span><span class="s1">) || (picurl.value === </span><span class="s3">''</span><span class="s1">)) {</span>
+
+      <span class="s0">return</span><span class="s2">;</span>
+    <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+
+      <span class="s0">if </span><span class="s1">(</span><span class="s0">this</span><span class="s1">.modifyEvent.id === </span><span class="s4">0</span><span class="s1">) {</span>
+        <span class="s0">this</span><span class="s1">.eventlist = [...</span><span class="s0">this</span><span class="s1">.eventlist</span><span class="s2">,</span>
+          <span class="s0">new </span><span class="s1">EventModel(eventName.value</span><span class="s2">, </span><span class="s0">this</span><span class="s1">.getNextId()</span><span class="s2">, </span><span class="s1">picurl.value)]</span><span class="s2">;</span>
+      <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+        <span class="s0">this</span><span class="s1">.eventlist = </span><span class="s0">this</span><span class="s1">.eventlist.map((ev) =&gt; {</span>
+          <span class="s0">if </span><span class="s1">(ev.id === </span><span class="s0">this</span><span class="s1">.modifyEvent.id) {</span>
+            <span class="s0">return </span><span class="s1">{</span>
+              id: ev.id<span class="s2">,</span>
+              <span class="s1">name: eventName.value</span><span class="s2">,</span>
+              <span class="s1">pic: picurl.value</span>
+            }<span class="s2">;</span>
+          <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">return </span><span class="s1">ev</span><span class="s2">;</span>
+          <span class="s1">}</span>
+
+        })<span class="s2">;</span>
+        <span class="s0">this</span><span class="s1">.modifyEvent = </span><span class="s0">new </span><span class="s1">EventModel()</span><span class="s2">;</span>
+      <span class="s1">}</span>
+      eventName.value = <span class="s3">''</span><span class="s2">;</span>
+      <span class="s1">picurl.value = </span><span class="s3">''</span><span class="s2">;</span>
+    <span class="s1">}</span>
+  }
+
+  editSelectedEvent(id: number) {
+
+
+    <span class="s0">this</span><span class="s1">.modifyEvent = </span><span class="s0">this</span><span class="s1">.eventlist.filter((ev: EventModel) =&gt; ev.id === id)[</span><span class="s4">0</span><span class="s1">]</span><span class="s2">;</span>
+
+  <span class="s1">}</span>
+
+  getNextId(): number {
+
+    <span class="s0">return </span><span class="s1">(</span><span class="s0">this</span><span class="s1">.eventlist.reduce((x</span><span class="s2">, </span><span class="s1">y) =&gt; x.id &gt; y.id ? x : y).id) + </span><span class="s4">1</span><span class="s2">;</span>
+  <span class="s1">}</span>
+
+
+}
+</pre>
+</body>
+</html>
