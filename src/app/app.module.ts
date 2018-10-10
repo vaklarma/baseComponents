@@ -14,7 +14,8 @@ import {JumbotronComponent} from './core/jumbotron/jumbotron.component';
 import {BsDropdownModule} from 'ngx-bootstrap';
 
 import {AppRoutingModule} from './app-routing.module';
-import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
+
+
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { PageNotFoundComponent } from './core/page-not-found/page-not-found.comp
     FooterComponent,
     JumbotronComponent,
     ...AppRoutingModule.routableComponents,
+
   ],
   imports: [
     BrowserModule,

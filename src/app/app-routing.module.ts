@@ -6,10 +6,11 @@ import {ListcssselectorsComponent} from './examples/listcssselectors/listcsssele
 import {ButtonsactionsComponent} from './examples/buttonsactions/buttonsactions.component';
 import {ListdemoComponent} from './examples/listdemo/listdemo.component';
 import {PageNotFoundComponent} from './core/page-not-found/page-not-found.component';
+import {LoginComponent} from './user/login/login.component';
 
 
 const routes: Routes = [
-{path: 'home', component: HomeComponent},
+  {path: 'home', component: HomeComponent},
   {
     path: 'examples',
     children: [
@@ -17,9 +18,15 @@ const routes: Routes = [
       {path: 'buttons', component: ButtonsactionsComponent},
       {path: 'listcss', component: ListcssselectorsComponent},
     ]
-},
-  {path: '', component: PageNotFoundComponent },
-  {path: '**', component: PageNotFoundComponent },
+  },
+  {
+    path: 'user',
+    children: [
+      {path: 'login', component: LoginComponent},
+    ]
+  },
+  {path: '', component: PageNotFoundComponent},
+  {path: '**', component: PageNotFoundComponent},
 ];
 
 @NgModule({
@@ -35,6 +42,7 @@ export class AppRoutingModule {
     ButtonsactionsComponent,
     ListdemoComponent,
     PageNotFoundComponent,
+    LoginComponent,
   ];
 
 
