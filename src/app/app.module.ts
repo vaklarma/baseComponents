@@ -14,6 +14,8 @@ import {JumbotronComponent} from './core/jumbotron/jumbotron.component';
 import {BsDropdownModule} from 'ngx-bootstrap';
 
 import {AppRoutingModule} from './app-routing.module';
+import {UserService} from './shared/user.service';
+
 
 
 
@@ -27,6 +29,8 @@ import {AppRoutingModule} from './app-routing.module';
     JumbotronComponent,
     ...AppRoutingModule.routableComponents,
 
+
+
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,7 @@ import {AppRoutingModule} from './app-routing.module';
     BsDropdownModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

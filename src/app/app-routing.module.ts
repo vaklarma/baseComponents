@@ -7,6 +7,9 @@ import {ButtonsactionsComponent} from './examples/buttonsactions/buttonsactions.
 import {ListdemoComponent} from './examples/listdemo/listdemo.component';
 import {PageNotFoundComponent} from './core/page-not-found/page-not-found.component';
 import {LoginComponent} from './user/login/login.component';
+import {RegistrationComponent} from './user/registration/registration.component';
+import {ProfileComponent} from './user/profile/profile.component';
+import {ProfileEditComponent} from './user/profile-edit/profile-edit.component';
 
 
 const routes: Routes = [
@@ -23,9 +26,13 @@ const routes: Routes = [
     path: 'user',
     children: [
       {path: 'login', component: LoginComponent},
+      {path: 'profile', component: ProfileComponent},
+      {path: 'edit', component: ProfileEditComponent},
+      {path: 'register', component: RegistrationComponent},
+      {path: '', component: ProfileComponent},
     ]
   },
-  {path: '', component: PageNotFoundComponent},
+  {path: '', component: HomeComponent},
   {path: '**', component: PageNotFoundComponent},
 ];
 
@@ -43,6 +50,9 @@ export class AppRoutingModule {
     ListdemoComponent,
     PageNotFoundComponent,
     LoginComponent,
+    RegistrationComponent,
+    ProfileComponent,
+    ProfileEditComponent,
   ];
 
 
