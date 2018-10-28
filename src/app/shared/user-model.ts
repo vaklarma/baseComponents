@@ -2,6 +2,9 @@ export class UserModel {
   id: number;
   name: string;
   email: string;
+  username: string;
+  password: string;
+  profilePictureUrl: string;
 
 constructor (param?: UserModel) {
   if (param) {
@@ -10,9 +13,13 @@ constructor (param?: UserModel) {
 }
   static get exampleUser(): UserModel {
     return {
-      id: 0,
+      id: 125,
       name: 'Makkmarci Béla',
-      email: 'makkmarci@gmai.com'
+      email: 'makkmarci@gmai.com',
+      username: 'makkmarci',
+      password: 'makkmarci',
+      profilePictureUrl: 'http://bestvoyage.in/wp-content/uploads/profile.png',
+
     };
   }
 
