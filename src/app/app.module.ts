@@ -12,6 +12,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {UserService} from './shared/user.service';
 import {LoggedInGuard} from './shared/logged-in.guard';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,7 @@ import {LoggedInGuard} from './shared/logged-in.guard';
     FooterComponent,
     JumbotronComponent,
     ...AppRoutingModule.routableComponents,
+
 
   ],
   imports: [

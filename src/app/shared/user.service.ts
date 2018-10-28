@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
 })
 export class UserService {
   public isLoggedIn = false;
+  public isAdmin = false;
   private _user: UserModel;
   private _allUser: UserModel[];
 
@@ -47,6 +48,16 @@ export class UserService {
         'profilePictureUrl': 'https://t6.rbxcdn.com/be06f7f6829ffd44d6c3f44c873f016d',
 
       }),
+      new UserModel({
+        'id': 4,
+        'name': 'adminuser',
+        'email': 'adminuser@gmail.com',
+        'username': 'admin',
+        'password': 'admin',
+        'permission': 'admin',
+        'profilePictureUrl': 'http://www.alexpearce.tech/wp-content/uploads/2011/08/image.png',
+
+      }),
     ];
   }
 
@@ -56,8 +67,12 @@ export class UserService {
       if (username === allu.username && password === allu.password) {
         this._user = new UserModel(allu);
         this.isLoggedIn = true;
-        console.log(this._user);
-        this._router.navigate(['/user/profile']);
+        if (this._user.permission === 'admin') {
+          this.isAdmin = true;
+          this._router.navigate(['/user/admin']);
+        } else {
+          this._router.navigate(['/user/profile']);
+        }
       }
     });
     return false;

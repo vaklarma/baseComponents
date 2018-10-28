@@ -11,6 +11,8 @@ import {RegistrationComponent} from './user/registration/registration.component'
 import {ProfileComponent} from './user/profile/profile.component';
 import {ProfileEditComponent} from './user/profile-edit/profile-edit.component';
 import {LoggedInGuard} from './shared/logged-in.guard';
+import {AdminComponent} from './user/admin/admin.component';
+import {AdminPermissionGuard} from './shared/admin-permission.guard';
 
 
 const routes: Routes = [
@@ -27,6 +29,8 @@ const routes: Routes = [
     path: 'user',
     children: [
       {path: 'login', component: LoginComponent},
+  //    {path: 'admin', component: AdminComponent, canActivate: [LoggedInGuard, AdminPermissionGuard]},
+      {path: 'admin', component: AdminComponent},
       {path: 'profile', component: ProfileComponent, canActivate: [LoggedInGuard]},
       {path: ':id', component: ProfileEditComponent},
       {path: 'register', component: RegistrationComponent},
@@ -54,6 +58,7 @@ export class AppRoutingModule {
     RegistrationComponent,
     ProfileComponent,
     ProfileEditComponent,
+    AdminComponent,
   ];
 
 
