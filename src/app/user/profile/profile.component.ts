@@ -9,7 +9,7 @@ import {UserService} from '../../shared/user.service';
 })
 export class ProfileComponent implements OnInit {
   user: UserModel;
-hehe = 'sdsd';
+
 
   constructor(private _userService: UserService) {
   }
