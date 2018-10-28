@@ -37,7 +37,15 @@
         (click)="login(email.value,password.value)"
       >Sign in
       </button>
+      <div *ngIf="alertMessage" class="form-group mt-5" >
+        <alert type="danger"
+               (onClose)="clearError()"
+               [dismissOnTimeout]="alertMessageTimeout"
+               [dismissible]="dismissible" >{{ alertMessage}}
+        </alert>
+      </div>
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
     </div>
+
   </div>
 </div>

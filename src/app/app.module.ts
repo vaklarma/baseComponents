@@ -7,7 +7,7 @@ import {SortPipe} from './sort.pipe';
 import {NavbarComponent} from './core/navbar/navbar.component';
 import {FooterComponent} from './core/footer/footer.component';
 import {JumbotronComponent} from './core/jumbotron/jumbotron.component';
-import {BsDropdownModule} from 'ngx-bootstrap';
+import {AlertModule, BsDropdownModule} from 'ngx-bootstrap';
 import {AppRoutingModule} from './app-routing.module';
 import {UserService} from './shared/user.service';
 import {LoggedInGuard} from './shared/logged-in.guard';
@@ -27,7 +27,8 @@ import {LoggedInGuard} from './shared/logged-in.guard';
     FormsModule,
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    AlertModule.forRoot(),
   ],
   providers: [UserService, LoggedInGuard],
   bootstrap: [AppComponent]

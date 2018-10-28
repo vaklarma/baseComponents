@@ -7,6 +7,9 @@ import {UserService} from '../../shared/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  dismissible = true;
+  alertMessage: string;
+  alertMessageTimeout: number;
 
   constructor(private _userService: UserService) {
   }
@@ -15,10 +18,14 @@ export class LoginComponent implements OnInit {
   }
 
   login(email: string, password: string) {
-    console.log(password);
+    if (!this._userService.login(email, password)) {
+      this.alertMessage = 'Hiba van Hello ! ';
+      this.alertMessageTimeout = 3000;
+    }
+  }
 
-    this._userService.login(email, password);
-
+  clearError() {
+    delete this.alertMessage;
   }
 
 }
