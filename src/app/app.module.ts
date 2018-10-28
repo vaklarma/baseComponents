@@ -10,6 +10,7 @@ import {JumbotronComponent} from './core/jumbotron/jumbotron.component';
 import {BsDropdownModule} from 'ngx-bootstrap';
 import {AppRoutingModule} from './app-routing.module';
 import {UserService} from './shared/user.service';
+import {LoggedInGuard} from './shared/logged-in.guard';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import {UserService} from './shared/user.service';
     BsDropdownModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [UserService],
+  providers: [UserService, LoggedInGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
